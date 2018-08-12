@@ -1,11 +1,11 @@
 | Language | Framework | Platform | Author |
 | -------- | -------- |--------|--------|
-| ASP.NET Core | .NET Core 1.1 | Azure Web App, Virtual Machines |
+| ASP.NET Core | .NET Core 1.1 | Azure Web App, Virtual Machines |Oscar Fuquen
 
 
-# ASP.NET Core MVC application 
+# ASP.NET Core API application 
 
-Sample ASP.NET Core MVC application built using Visual Studio 2017.
+Basic sample of API using JWT.
 
 ## License:
 See [LICENSE](LICENSE).
