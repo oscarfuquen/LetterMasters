@@ -19,39 +19,38 @@ namespace UnitTestLetterMasters
         public void Get_WhenCalled_Returns_A_Valid_Word()
         {
             // Act
-            var validWord = _controller.Get("test");
+            var validWord = _controller.Get("test").Result;
 
             // Assert
-            Assert.AreEqual(true, validWord);
+            Assert.AreEqual(true, validWord.IsAValidWord);
         }
 
         [TestMethod]
         public void Get_WhenCalled_Contains_spaces_Returns_An_Invalid_Word()
         {
             // Act
-            var invalidWord = _controller.Get("test one two");
+            var invalidWord = _controller.Get("test one two").Result;
 
             // Assert
-            Assert.AreEqual(false, invalidWord);
+            Assert.AreEqual(false, invalidWord.IsAValidWord);
         }
 
         [TestMethod]
         public void Get_WhenCalled_Contains_Numbers_Returns_An_Invalid_Word()
         {
             // Act
-            var invalidWord = _controller.Get("test123");
-
+            var invalidWord = _controller.Get("test123").Result;
             // Assert
-            Assert.AreEqual(false, invalidWord);
+            Assert.AreEqual(false, invalidWord.IsAValidWord);
         }
         [TestMethod]
         public void Get_WhenCalled_Contains_Special_Characters_Returns_An_Invalid_Word()
         {
             // Act
-            var invalidWord = _controller.Get("test%");
+            var invalidWord = _controller.Get("test%").Result;
 
             // Assert
-            Assert.AreEqual(false, invalidWord);
+            Assert.AreEqual(false, invalidWord.IsAValidWord);
         }
     }
 }

@@ -1,13 +1,14 @@
 ﻿using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace LetterMasters.BL
 {
     public class ValidateWord : IValidateWord
     {
-        public bool IsAValidWord(string word)
+        public async Task<bool> IsAValidWord(string word)
         {
-            Regex r = new Regex("^[a-zA-Z]*$");
-            return r.IsMatch(word);
+            var r = new Regex("^[a-zA-Z]*$");
+            return await Task.Run(() => r.IsMatch(word));
         }
     }
 }

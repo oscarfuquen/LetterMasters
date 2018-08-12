@@ -1,4 +1,7 @@
-﻿using LetterMasters.BL;
+﻿using System.Threading.Tasks;
+using LetterMasters.BL;
+using LetterMasters.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LetterMasters.Controllers
@@ -13,10 +16,11 @@ namespace LetterMasters.Controllers
         }
 
         // GET api/word/5
-        [HttpGet("{word}")]
-        public bool Get(string word)
+        [HttpGet("{word}"), Authorize]
+        public async Task<Word> Get(string word)
         {
-            return _validateWord.IsAValidWord(word);
+            var wordModel = new Word {IsAValidWord = await _validateWord.IsAValidWord(word)};
+            return wordModel;
         }
     }
 }

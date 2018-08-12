@@ -1,7 +1,9 @@
-﻿namespace LetterMasters.BL
+﻿using System.Threading.Tasks;
+
+namespace LetterMasters.BL
 {
     public interface IValidateWord
     {
-        bool IsAValidWord(string word);
+        Task<bool> IsAValidWord(string word);
     }
 }
